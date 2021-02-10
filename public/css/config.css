@@ -1,0 +1,13 @@
+* {
+    padding: 0px;
+    margin: 0px; 
+}
+
+body {
+    font-family: GoogleSans-Regular;
+    font-size: 13px;
+}
+@font-face {
+    font-family: 'GoogleSans-Regular';
+    src: url("../fonts/GoogleSans/GoogleSans-Regular.otf") format('opentype');
+}

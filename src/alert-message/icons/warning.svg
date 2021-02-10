@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns:svgjs="http://svgjs.com/svgjs"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+	 style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:#F0C419;}
+</style>
+<g>
+	<g id="XMLID_350_">
+		<circle class="st0" cx="256" cy="258" r="226"/>
+		<path id="XMLID_354_" class="st1" d="M256,72.5C154.8,72.5,72.5,154.8,72.5,256c0,101.2,82.3,183.5,183.5,183.5
+			c101.2,0,183.5-82.3,183.5-183.5C439.5,154.8,357.2,72.5,256,72.5z M290.1,379.6c0,6-4.8,10.8-10.8,10.8h-46.6
+			c-6,0-10.8-4.9-10.8-10.8V240.2c0-6,4.8-10.8,10.8-10.8h46.6c6,0,10.8,4.9,10.8,10.8V379.6z M256,187.7c-23,0-41.6-18.6-41.6-41.6
+			c0-23,18.6-41.6,41.6-41.6c23,0,41.6,18.6,41.6,41.6C297.6,169.1,279,187.7,256,187.7z"/>
+		<path id="XMLID_351_" class="st1" d="M256,0C114.6,0,0,114.6,0,256c0,141.4,114.6,256,256,256s256-114.6,256-256
+			C512,114.6,397.4,0,256,0z M256,473.6C136,473.6,38.4,376,38.4,256C38.4,136,136,38.4,256,38.4c120,0,217.6,97.6,217.6,217.6
+			C473.6,376,376,473.6,256,473.6z"/>
+	</g>
+</g>
+</svg>
