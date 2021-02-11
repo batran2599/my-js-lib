@@ -97,8 +97,8 @@ class Modal_tdb {
 
         this.footerModal = this.createHTMLTag("div", {class: "footer-modal"});
         this.containButton = this.createHTMLTag("div", {class: "contain-button-modal"});
-        this.buttonCancelF = this.createHTMLTag("button", {class: "cancel-modal button"});
-        this.buttonConfirmF = this.createHTMLTag("button", {class: "confirm-modal button"});
+        this.buttonCancelF = this.createHTMLTag("button", {class: "cancel-modal"});
+        this.buttonConfirmF = this.createHTMLTag("button", {class: "confirm-modal"});
         this.containButton.appendChild(this.buttonCancelF);
         this.containButton.appendChild(this.buttonConfirmF);
         this.footerModal.appendChild(this.containButton);

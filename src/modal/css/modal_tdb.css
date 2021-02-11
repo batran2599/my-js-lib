@@ -15,7 +15,7 @@
         overflow: hidden;
         position: absolute;
         top: 24px;
-        left: calc((100% - 350px)/2);
+        left: calc((100% - 450px)/2);
     }
 
         .modal-tdb .header-modal {
@@ -87,6 +87,7 @@
                 .modal-tdb .footer-modal .contain-button-modal .cancel-modal {
                     margin-right: 16px;
                     background-color: #E9EBEE;
+                    color: black;
                 }
 
                 .modal-tdb .footer-modal .contain-button-modal .cancel-modal:hover {
@@ -98,7 +99,7 @@
                     color: #ffffff;
                 }
 
-                .modal-tdb .footer-modal .contain-button-modal .button {
+                .modal-tdb .footer-modal .contain-button-modal > button {
                     outline: none;
                     cursor: pointer;
                     min-width: 70px;
@@ -129,3 +130,10 @@
                     transform: translate3d(0, -100%, 0);
                     }
                 }
+
+@media only screen and (max-width: 736px) {
+    .modal-tdb {
+        width: 80%;
+        left: calc((100% - 80%)/2);
+    }
+}

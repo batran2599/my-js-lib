@@ -32,9 +32,9 @@
             margin-left: 10px;
             font-size: 14px;
             width: calc(100% - 2*30px - 4*10px);
-            text-overflow: ellipsis;
+            /* text-overflow: ellipsis;
             white-space: nowrap;
-            overflow: hidden;
+            overflow: hidden; */
         }
 
         .contain-messages .form-message .remove-massage {

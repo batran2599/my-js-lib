@@ -5,9 +5,56 @@
 
 body {
     font-family: GoogleSans-Regular;
-    font-size: 13px;
+    font-size: 13.5px;
 }
+
 @font-face {
     font-family: 'GoogleSans-Regular';
     src: url("../fonts/GoogleSans/GoogleSans-Regular.otf") format('opentype');
+}
+
+.border-bottom-red {
+    border-bottom: 3px solid #F65454;
+}
+
+.border-bottom-yallow {
+    border-bottom: 3px solid #F0C419;
+}
+
+.border-bottom-green {
+    border-bottom: 3px solid #01B075;
+}
+
+.border-bottom-blue {
+    border-bottom: 3px solid #0075ff;
+}
+
+.background-red {
+    background-color: #F65454;
+}
+
+.background-yallow {
+    background-color: #F0C419;
+}
+
+.background-green {
+    background-color: #01B075;
+}
+
+.background-blue {
+    background-color: #0075ff;
+}
+
+.button {
+    min-width: 100px;
+    height: 35px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    color: #ffffff;
+    margin-right: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }

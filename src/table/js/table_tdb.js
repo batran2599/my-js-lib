@@ -17,8 +17,8 @@ class Table_tdb {
         this.configTable = null;
         this.configAjax = null;
         this.recordId = null;
-
-        this.loader = new Loader_tdb();
+        this.loader = null;
+        this.data = null;
     }
 
     /**
@@ -38,10 +38,11 @@ class Table_tdb {
      * Lấy dữ liệu thông qua API rồi đẩy vào bảng
      * @param {string} urlAPI  Đường dẫn API
      * @param {string} method Phương thức truyền dẫn dữ liệu GET, POST, ...
+     * @param {bool} loader Xác định xem có sử dụng đối tượng Loader không
      * CreatedBy: Trần Duy Bá (30/12/2020)
      * UpdateBy: Trần Duy Bá (14/01/2021)
      */
-    setDataWithAPI(urlAPI, method, loader = true) {
+    setDataWithAPI(urlAPI, method, loader = false) {
         if(loader) {
             this.loader.create();
         }
@@ -50,7 +51,8 @@ class Table_tdb {
             method: method,
             ...this.configAjax
         }).done((res)=>{
-            this.setDataForTable(res, loader);
+            this.data = res;
+            this.setDataForTable(loader);
         }).fail(()=>{
             console.error("Lỗi khi lấy dữ liệu cho bảng !");
         });
@@ -60,6 +62,7 @@ class Table_tdb {
      * -----------------------------------------------------------------------------------------------
      * Nhận dữ liệu truyền vào dưới dạng Object sau đó đẩy vào bảng thông qua hàm SetDataForTable(data): 
      * @param {Object} data Object có format
+     * @param {bool} loader Xác định xem có sử dụng đối tượng Loader không
      * data =  {
      *      any: {
      *          property: value,
@@ -70,19 +73,20 @@ class Table_tdb {
      * CreatedBy: Trần Duy Bá (30/12/2020)
      * UpdateBy: Trần Duy Bá (14/01/2021)
      */
-    setDataWithObjData(data = null, loader = true) {
+    setDataWithObjData(data = null, loader = false) {
         if(data !== null) {
             if(loader) {
                 this.loader.create();
             }
-            this.setDataForTable(data, loader);
+            this.data = data;
+            this.setDataForTable(loader);
         }
     }
 
     /**
      * ---------------------------------------------
      * Nhận vào dữ liệu và hiển thị lên bảng dữ liệu
-     * @param {*} data 
+     * @param {bool} loader Xác định xem có sử dụng đối tượng Loader không
      * data =  {
      *      any: {
      *          property: value,
@@ -93,16 +97,17 @@ class Table_tdb {
      * CreatedBy: Trần Duy Bá (24/12/2020)
      * UpdateBy: Trần Duy Bá (14/01/2021)
      */
-    setDataForTable(data, loader) {
+    setDataForTable(loader = false) {
+        $(this.tableSelector).addClass("table-tdb");
         this.removeTitleColumn();
         this.removeContentTable()
         this.setTitleForColumn();
         let rowData = "";
         let tdTag = "";
-        $.each(data, (index, itemRow)=>{ // Lặp qua từng dòng dữ liệu
+        $.each(this.data, (index, itemRow)=>{ // Lặp qua từng dòng dữ liệu
             $.each(this.configTable, (indexTd)=>{ // Lặp qua thông tin cấu hình của bảng để lấy thuộc tính tương ứng với từng dòng data và tên của cột data tương ứng
                 if(this.configTable[indexTd]["filterName"] !== undefined) { // Kiểm tra xem loại dữ liệu hiện tại có dùng đến filter không có thì dùng Filter tương ứng còn không thì thôi
-                    tdTag += `<td>${Filter[this.configTable[indexTd]["filterName"]](itemRow[indexTd])}</td>`;
+                    tdTag += `<td>${Filter_tdb[this.configTable[indexTd]["filterName"]](itemRow[indexTd])}</td>`;
                 } else {
                     tdTag += `<td>${itemRow[indexTd]}</td>`;
                 }
@@ -140,6 +145,17 @@ class Table_tdb {
      */
     removeContentTable() {
         $(`${this.tableSelector} > tbody > tr`).remove();
+    }
+
+    /**
+     * Làm mới lại bảng dữ liệu
+     * @param {bool} loader Xác định xem có sử dụng đối tượng Loader không
+     * CreatedBy: Trần Duy Bá (11/02/2021)
+     */
+    refreshTable(loader = false) {
+        this.removeTitleColumn();
+        this.removeContentTable();
+        this.setDataForTable(loader);
     }
 
 }

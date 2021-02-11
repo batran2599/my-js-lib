@@ -10,6 +10,10 @@
         object-fit: fill;
     }
 
+.title-page {
+    text-align: center;
+}
+
 .content {
     width: 90%;
     margin-left: 5%;
@@ -24,68 +28,54 @@
             display: inline-block;
             color: #555555;
         }
-
-            .content .component .title-modal {
-                border-bottom: 3px solid #F65454;
+            .content .component .title-component > a {
+                text-decoration: none;
+                color: #555555;
             }
 
-
-            .content .component .title-alert-message {
-                border-bottom: 3px solid #01B075;
-            }
-
-            .content .component .title-menu-dropdown {
-                border-bottom: 3px solid #F0C419;
-            }
-
-                .content .component .title-component > a {
-                    text-decoration: none;
-                    color: #555555;
-                }
-
-            .content .component .list-button-test {
+            .content .component .list-item-test .menu-dropdown{
                 margin-top: 15px;
                 margin-bottom: 15px;
             }
 
-                .content .component .button {
-                    min-width: 100px;
-                    height: 35px;
-                    cursor: pointer;
-                    outline: none;
-                    border: none;
-                    border-radius: 5px;
-                    font-size: 13px;
-                    color: #ffffff;
-                    margin-right: 10px;
-                    transition: 0.1s;
-                }
+            .content .component .table-item {
+                max-height: 500px;
+                overflow: scroll;
+            }
 
-                .content .component .list-button-test .modal-message {
-                    background-color: #01B075;
+                .content .component .table-item::-webkit-scrollbar {
+                    width: 8px;
+                    height: 8px;
                 }
+            
+                .content .component .table-item::-webkit-scrollbar-track-piece {
+                    background: #bbbbbb; 
+                }
+            
+                .content .component .table-item::-webkit-scrollbar-thumb {
+                    background: #454545 ; 
+                }
+        
+                    .content .component .table-item > .table-test > thead > tr > th:nth-child(4) {
+                        text-align: center;
+                    }
+                
+                    .content .component .table-item > .table-test  > thead > tr > th:nth-child(9) {
+                        text-align: right;
+                    }
+                    
+                    .content .component .table-item > .table-test  > tbody > tr > td:nth-child(4) {
+                        text-align: center;
+                    }
+            
+                    .content .component .table-item > .table-test  > tbody > tr > td:nth-child(9) {
+                        text-align: right;
+                    }
 
-                .content .component .list-button-test .modal-warning {
-                    background-color: #F0C419;
-                }
+        .content .component .discription {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
 
-                .content .component .list-button-test .modal-error {
-                    background-color: #F65454;
-                }
-
-                .content .component .list-button-test .alert-message-done {
-                    background-color: #01B075;
-                }
-
-                .content .component .list-button-test .alert-message-info {
-                    background-color: #0075ff;
-                }
-
-                .content .component .list-button-test .alert-message-warning {
-                    background-color: #F0C419;
-                }
-
-                .content .component .list-button-test .alert-message-error {
-                    background-color: #F65454;
-                }
+    
 

@@ -1,0 +1,34 @@
+.table-tdb {
+    border-collapse: collapse;
+    width: 110%;
+}   
+
+    .table-tdb > thead > tr > th{
+        height: 40px;
+        position: sticky;
+        top: 0;
+        background-color: #ffffff;
+        text-align: left;
+        padding-left: 18px;
+    }
+
+        .table-tdb > tbody > tr:nth-child(odd) {
+            background-color: #E9EBEE;
+        }
+        .table-tdb > tbody > tr:hover {
+            background-color: #2FBE8E;
+        }
+
+            .table-tdb > tbody > tr:hover > td {
+                color: #ffffff;
+            }
+
+            .table-tdb > tbody > tr > td {
+                height: 40px;
+                line-height: 40px;
+                padding-left: 18px;
+                max-width: 250px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }

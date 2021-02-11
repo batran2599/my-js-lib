@@ -2,57 +2,109 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="public/css/config.css">
         <link rel="stylesheet" type="text/css" href="public/css/index.css">
         <link rel="stylesheet" type="text/css" href="src/modal/css/modal_tdb.css">
         <link rel="stylesheet" type="text/css" href="src/alert-message/css/alertMessage_tdb.css">
         <link rel="stylesheet" type="text/css" href="src/menu-dropdown/css/menuDropdown_tdb.css">
-        <title>Lib</title>
+        <link rel="stylesheet" type="text/css" href="src/table/css/table_tdb.css">
+        <title>Bộ thư viện Javascript</title>
         <link rel="icon" type="image/svg" href="public/imgs/MyLogoDev_v5_SVG.svg"/>
     </head>
     <body>
         <div class="logo">
             <img src="public/imgs/MyLogoDev_v5_SVG.svg">
         </div>
+        <h1 class="title-page">
+            <span style="color: #01B075">Thư viện</span> <span style="color: #F65454">Javascript</span>
+        </h1>
         <div class="content">
             <div class="component">
-                <h3 class="title-component title-modal">
+                <h3 class="title-component title-modal border-bottom-green">
                     <a href="#">Modal</a>
                 </h3>
-                <div class="list-button-test">
-                    <button class="button modal-message">Thông báo</button>
-                    <button class="button modal-warning">Cảnh báo</button>
-                    <button class="button modal-error">Lỗi</button>
+                <div class="discription">
+                    <b>Mô tả: </b> 
+                    <p> - Modal gồm có 3 loại: <b style="color: #01B075">Message Modal</b> sử dụng để thông báo cho người dùng, thông báo chỉ nhằm mục đích cung cấp
+                        thêm thông tin cho người dùng</p>
+                </div>
+                <div class="list-item-test">
+                    <button class="button modal-message background-green">Thông báo</button>
+                    <button class="button modal-warning background-yallow">Cảnh báo</button>
+                    <button class="button modal-error background-red">Lỗi</button>
                 </div>
             </div>
         </div>
         <div class="content">
             <div class="component">
-                <h3 class="title-component title-alert-message">
+                <h3 class="title-component title-alert-message border-bottom-red">
                     <a href="#">Alert Message</a>
                 </h3>
-                <div class="list-button-test">
-                    <button class="button alert-message-done">Thành công</button>
-                    <button class="button alert-message-info">Thông tin</button>
-                    <button class="button alert-message-warning">Cảnh báo</button>
-                    <button class="button alert-message-error">Lỗi</button>
+                <div class="discription">
+                    <b>Mô tả: </b> <p></p>
+                </div>
+                <div class="list-item-test">
+                    <button class="button alert-message-done background-green">Thành công</button>
+                    <button class="button alert-message-info background-blue">Thông tin</button>
+                    <button class="button alert-message-warning background-yallow">Cảnh báo</button>
+                    <button class="button alert-message-error background-red">Lỗi</button>
                 </div>
             </div>
         </div>
         <div class="content">
             <div class="component">
-                <h3 class="title-component title-menu-dropdown">
+                <h3 class="title-component title-menu-dropdown border-bottom-blue">
                     <a href="#">Menu Dropdown</a>
                 </h3>
-                <div class="list-button-test">
+                <div class="discription">
+                    <b>Mô tả: </b> <p></p>
+                </div>
+                <div class="list-item-test">
                     <div class="menu-dropdown"></div>
                 </div>
             </div>
         </div>
+        <div class="content">
+            <div class="component">
+                <h3 class="title-component title-alert-message border-bottom-yallow">
+                    <a href="#">Loader</a>
+                </h3>
+                <div class="discription">
+                    <b>Mô tả: </b> <p></p>
+                </div>
+                <div class="list-item-test">
+                    <button class="button loader-tdb background-green">Load dữ liệu</button>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="component">
+                <h3 class="title-component title-menu-dropdown border-bottom-green">
+                    <a href="#">Table</a>
+                </h3>
+                <div class="discription">
+                    <b>Mô tả: </b> <p></p>
+                </div>
+                <div class="list-item-test">
+                    <button class="button refresh-table background-red">Làm mới</button>
+                    <div class="table-item">
+                        <table class="table-test">
+                            <thead></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script type="text/javascript" src="lib/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="src/loader-tdb/loader_tdb.js"></script>
         <script type="text/javascript" src="src/modal/js/modal_tdb.js"></script>
         <script type="text/javascript" src="src/alert-message/js/alertMessage_tdb.js"></script>
         <script type="text/javascript" src="src/menu-dropdown/js/menuDropdown_tdb.js"></script>
+        <script type="text/javascript" src="src/table/js/fakeData.js"></script>
+        <script type="text/javascript" src="src/table/js/filter_tdb.js"></script>
+        <script type="text/javascript" src="src/table/js/table_tdb.js"></script>
         <script type="text/javascript" src="index.js"></script>
     </body>
 </html>
