@@ -25,9 +25,20 @@
                     <a href="#">Modal</a>
                 </h3>
                 <div class="discription">
-                    <b>Mô tả: </b> 
-                    <p> - Modal gồm có 3 loại: <b style="color: #01B075">Message Modal</b> sử dụng để thông báo cho người dùng, thông báo chỉ nhằm mục đích cung cấp
-                        thêm thông tin cho người dùng</p>
+                    <p style="text-align: justify; line-height: 20px;"><span><strong>C&aacute;ch sử dụng:</strong></span> Đầu ti&ecirc;n ch&uacute;ng ta cần tạo một đối tượng Modal <strong>VD:</strong><span style="color: #800080;"> const</span> <span style="color: #993300;">modal</span> <span style="color: #3366ff;">=</span> <span style="color: #800080;">new</span> <span style="color: #3366ff;">Modal_tdb<span style="color: #ffcc00;">()</span></span><span style="color: #999999;">;</span>&nbsp;<strong>constructor&nbsp;</strong>của class Modal_tdb cho ta truyền v&agrave;o một string, string n&agrave;y ch&iacute;nh l&agrave; css selector tới element m&agrave; ta muốn hiển thị modal ở b&ecirc;n trong. Đối tượng <span style="color: #800080;">modal&nbsp;<span style="color: #000000;">m&agrave; ta vừa tạo c&oacute; tổng cộng 3 phương thức quan trọng tương ứng 3 loại modal đ&oacute; l&agrave;: <span style="color: #3366ff;">message()</span> tương ứng với Message Modal, <span style="color: #3366ff;">warning()</span> tương ứng với Warning Modal v&agrave; cuối c&ugrave;ng l&agrave; <span style="color: #3366ff;">error()</span> tương ứng với Error Modal. Cả ba phương thức n&agrave;y đều c&oacute; 5 tham số truyền v&agrave;o v&agrave; thứ tự của ch&uacute;ng tương ứng như sau:</span></span></p>
+                    <ul style="text-align: justify; padding-left: 25px; line-height: 20px;">
+                    <li><span style="color: #800080;"><span style="color: #000000;"><span style="color: #993300;">action</span> (function): Tham số chứa h&agrave;nh động cần thực thi khi ta nhấn confirm (mặc định l&agrave; null).</span></span></li>
+                    <li><span style="color: #800080;"><span style="color: #000000;"><span style="color: #993300;">title</span> (string): L&agrave; ti&ecirc;u đề của Modal&nbsp;</span></span></li>
+                    <li><span style="color: #800080;"><span style="color: #000000;"><span style="color: #993300;">content</span> (string): Nội dung muốn hiển thị trong Modal</span></span></li>
+                    <li>
+                    <div><span style="color: #993300;">titleButtonCancel</span> (string): Ti&ecirc;u đề của n&uacute;t cancel (mặc định l&agrave; "Hủy")</div>
+                    </li>
+                    <li>
+                    <div><span style="color: #993300;">titleButtonConfirm</span> (string): Ti&ecirc;u đề của n&uacute;t confirm (mặc định l&agrave; "Ok")</div>
+                    </li>
+                    </ul>
+                    <p style="text-align: justify;">Khi muốn sử dụng modal n&agrave;o th&igrave; ra chỉ cần gọi phương thức tương ứng với Modal đ&oacute; v&agrave; truyền gi&aacute; trị cho c&aacute;c tham số m&agrave; ta muốn thay đổi l&agrave; xong Modal sẽ tự động hiển thị và ta có thể nhấn và dấu <span style="color: #F65454;">X</span> để tắt nó đi hoặc để nó tự biến mất sau 5 giây.</p>
+                    <p><b>Bên dưới là các nút Demo:</b></p>
                 </div>
                 <div class="list-item-test">
                     <button class="button modal-message background-green">Thông báo</button>
@@ -42,7 +53,9 @@
                     <a href="#">Alert Message</a>
                 </h3>
                 <div class="discription">
-                    <b>Mô tả: </b> <p></p>
+                    <p style="text-align: justify; line-height: 20px;"><span style="color: #000000;"><strong>C&aacute;ch sử dụng:</strong></span> Đầu ti&ecirc;n ch&uacute;ng ta cần tạo một đối tượng Message&nbsp;<strong>VD:</strong><span style="color: #800080;"> const</span> <span style="color: #993300;">message</span>&nbsp;<span style="color: #3366ff;">=</span> <span style="color: #800080;">new&nbsp;</span><span style="color: #3366ff;">AlertMessage_tdb<span style="color: #ffcc00;">()</span></span><span style="color: #999999;">;</span>&nbsp;<strong>constructor&nbsp;</strong>của class AlertMessage_tdb cho ta truyền v&agrave;o một string, string n&agrave;y ch&iacute;nh l&agrave; css selector tới element m&agrave; ta muốn hiển thị message ở b&ecirc;n trong. Đối tượng <span style="color: #800080;">message&nbsp;<span style="color: #000000;">m&agrave; ta vừa tạo c&oacute; tổng cộng 4 phương thức quan trọng tương ứng 4 loại modal đ&oacute; l&agrave;: <span style="color: #3366ff;">done()</span> tương ứng với Done Message,&nbsp;<span style="color: #3366ff;">info()</span> tương ứng với Info Message, <span style="color: #3366ff;">warning()</span> tương ứng với Warning Message v&agrave; cuối c&ugrave;ng l&agrave; <span style="color: #3366ff;">error()</span> tương ứng với Error Message. Cả 4 phương thức n&agrave;y đều c&oacute; 1 tham số truyền v&agrave;o v&agrave; đ&oacute; l&agrave; <span style="color: #993300;">content<span style="color: #000000;">, <span style="color: #993300;">content&nbsp;<span style="color: #000000;">nhận v&agrave;o một chuỗi nội dung m&agrave; ta muốn hiển thị trong message.</span></span></span></span></span></span></p>
+                    <p style="text-align: justify; line-height: 20px;">Khi muốn sử dụng message n&agrave;o th&igrave; ra chỉ cần gọi phương thức tương ứng với message đ&oacute; v&agrave; truyền nội dung cần hiển thị l&agrave; xong.</p>
+                    <p style="text-align: justify; line-height: 20px;"><strong>B&ecirc;n dưới l&agrave; c&aacute;c n&uacute;t Demo:</strong></p>
                 </div>
                 <div class="list-item-test">
                     <button class="button alert-message-done background-green">Thành công</button>
@@ -58,7 +71,24 @@
                     <a href="#">Menu Dropdown</a>
                 </h3>
                 <div class="discription">
-                    <b>Mô tả: </b> <p></p>
+                    <p style="text-align: justify; line-height: 20px;"><span style="color: #000000;"><strong>C&aacute;ch sử dụng:</strong></span></p>
+                    <p style="text-align: justify; line-height: 20px;">- Đầu ti&ecirc;n để sử dụng được th&igrave; ch&uacute;ng ta cần tạo một thẻ &lt;div&gt; l&agrave; khunng chứa Menu Dropdown, tiếp theo l&agrave; tạo đối tượng Menu Dropdow&nbsp;<strong>VD:</strong><span style="color: #800080;"> const</span>&nbsp;<span style="color: #993300;">menuDropdown</span>&nbsp;<span style="color: #3366ff;">=</span> <span style="color: #800080;">new&nbsp;<span style="color: #3366ff;">MenuDropdown</span></span><span style="color: #3366ff;">_tdb<span style="color: #ffcc00;">()</span></span><span style="color: #999999;">;</span>&nbsp;<strong>constructor&nbsp;</strong>của class MenuDropdown_tdb y&ecirc;u cầu c&oacute; 4 tham số đầu v&agrave;o&nbsp; (ta c&oacute; thể kh&ocirc;ng cần truyền v&agrave;o ngay l&uacute;c khởi tạo đối tượng m&agrave; c&oacute; thể cấu h&igrave;nh th&ocirc;ng qua c&aacute;c thuộc t&iacute;nh c&ugrave;ng t&ecirc;n của đối tượng <span style="color: #993300;">menuDropdown</span>):</p>
+                    <ul style="padding-left: 25px; line-height: 20px;">
+                    <li style="text-align: justify;"><span style="color: #993300;">containingSelector</span> (string): L&agrave; css selector đến thẻ &lt;div&gt; l&agrave;m khung chứa Menu Dropdown.</li>
+                    <li style="text-align: justify;"><span style="color: #993300;">nameOfInputSaveOption</span> (string): ch&iacute;nh l&agrave; gi&aacute; trị của thuộc t&iacute;nh name trong thẻ input sử dụng để lấy gi&aacute; trị của option m&agrave; ta đ&atilde; chọn.</li>
+                    <li style="text-align: justify;"><span style="color: #993300;">configData</span> (object): Đối tượng chứa thuộc t&iacute;nh title v&agrave; value, title chứa gi&aacute; trị l&agrave; t&ecirc;n của thuộc t&iacute;nh nằm trong đối tượng data m&agrave; ta truyền v&agrave;o, thuộc t&iacute;nh trong đối tượng data n&agrave;y sẽ chứa t&ecirc;n hiển thị của mỗi option (phần nội dung hiển thị cho người d&ugrave;ng), value cũng gần tương tự như title nhưng n&oacute; l&agrave; t&ecirc;n của thuộc t&iacute;nh chứa gi&aacute; trị của option nằm trong đối tượng data.</li>
+                    <li style="text-align: justify;"><span style="color: #993300;">data</span> (array): Chứa một mảng c&aacute;c c&aacute;c đối tượng dữ liệu, mỗi đối tượng gồm 2 thuộc t&iacute;nh, 1 d&ugrave;ng để chứa t&ecirc;n hiển thị của mỗi option, 1 d&ugrave;ng để chứa gi&aacute;i trị của option.</li>
+                    </ul>
+                    <p>- Cấu h&igrave;nh dữ liệu v&agrave; v&agrave; hiển thị cho Menu Dropdown:</p>
+                    <p style="padding-left: 10px; line-height: 20px;">+ Với đối tượng Menu Dropdown ta c&oacute; 2 c&aacute;ch để ta c&oacute; thể cấu h&igrave;nh dữ liệu cho n&oacute;:</p>
+                    <ul style="padding-left: 45px; line-height: 20px;">
+                    <li><strong>C&aacute;ch 1:</strong> Truyền dữ liệu th&ocirc; ngay khi khởi tạo hoặc th&ocirc;ng qua thuộc t&iacute;nh data sau đ&oacute; gọi phương thước <span style="color: #3366ff;">create()</span>, phương thức <span style="color: #3366ff;">create()</span> c&oacute; một tham số truyền v&agrave; ch&iacute;nh l&agrave; gi&aacute; trị của option m&agrave; ta muốn hiển thị mặc định.</li>
+                    <li><strong>C&aacute;ch 2:</strong> Truyền dữ liệu th&ocirc;ng qua API bằng phương thức <span style="color: #3366ff;"><span style="color: #3366ff;">setDataWithAPI()<span style="color: #000000;">, phương thức gồm c&oacute; 4 tham số đầu v&agrave;o: <span style="color: #993300;">urlAPI</span> l&agrave; đường dẫn API, <span style="color: #993300;">method</span> l&agrave; loại giao thức (mặc định l&agrave; GET),&nbsp;<span style="color: #993300;">valueOfOption&nbsp;<span style="color: #000000;">(kh&ocirc;ng cần thiết)</span>&nbsp;<span style="color: #000000;">chứa gi&aacute; trị của option mặc định sẽ được hiển thị khi menu được tạo v&agrave;&nbsp;</span></span></span></span></span><span style="color: #3366ff;"><span style="color: #000000;"><span style="color: #993300;">configAjax <span style="color: #000000;">(kh&ocirc;ng cần thiết)</span></span>&nbsp;l&agrave; đối tượng chứa c&aacute;c cấu h&igrave;nh cho việc sử dụng ajax theo chuẩn của jquery. Với c&aacute;ch n&agrave;y sau khi ch&uacute;ng ta gọi v&agrave; truyền đầy đủ c&aacute;c tham số th&igrave; đối tượng create sẽ tự động được gọi.</span></span></li>
+                    </ul>
+                    <p style="padding-left: 20px; line-height: 20px;">Đ&ocirc;i khi trong một số trường hợp y&ecirc;u cầu cần th&ecirc;m dữ liệu liệu mới cho Menu Dropdown th&igrave; ta c&oacute; thể sử dụng phương thức <span style="color: #3366ff;">addOption()<span style="color: #000000;">, phương thức nhận v&agrave;o một đối tượng chứa dữ liệu mới cần th&ecirc;m v&agrave;o, sau đ&oacute; ch&uacute;ng ta phải gọi lại phương thức <span style="color: #3366ff;">create()</span> v&agrave; truyền v&agrave;o gi&aacute; trị của option muốn hiển thị mặc định.</span></span></p>
+                    <p style="padding-left: 10px; line-height: 20px;"><span style="color: #3366ff;"><span style="color: #000000;">+ Để chọn một option th&igrave; ngo&agrave;i việc click v&agrave;o option muốn chọn th&igrave; ta ho&agrave;n to&agrave;n c&oacute; thể sử dụng phương thức <span style="color: #3366ff;">chooseOption()</span>, phương thức nhận v&agrave;o gi&aacute; trị của option muốn chọn.</span></span></p>
+                    <p style="padding-left: 10px; line-height: 20px;"><span style="color: #3366ff;"><span style="color: #000000;">+ Để đưa Menu Dropdown mặc định hay kh&ocirc;ng chọn option n&agrave;o th&igrave; ta gọi phương thức <span style="color: #3366ff;">setDefault()</span>.</span></span></p>
+                    <p style="text-align: justify; line-height: 20px;"><strong>B&ecirc;n dưới l&agrave; Menu Dropdown Demo sử dụng thức liệu th&ocirc;:</strong></p>
                 </div>
                 <div class="list-item-test">
                     <div class="menu-dropdown"></div>
@@ -71,7 +101,8 @@
                     <a href="#">Loader</a>
                 </h3>
                 <div class="discription">
-                    <b>Mô tả: </b> <p></p>
+                    <p style="text-align: left; line-height: 20px;"><span style="color: #000000;"><strong style="color: #000000;">C&aacute;ch sử dụng:&nbsp;</strong>Đầu ti&ecirc;n để sử dụng được đối tượng Loader th&igrave; ta cần tạo ra một đối tượng Loader :)&nbsp;<strong style="color: #000000;">VD:&nbsp;</strong><span style="color: #800080;">const</span>&nbsp;<span style="color: #993300;">loader</span> = <span style="color: #800080;">new</span> <span style="color: #3366ff;">Loader_tdb</span><span style="color: #ffcc00;">()</span><span style="color: #808080;">; <span style="color: #000000;"><strong>constructor</strong> của class Loader_tdb nhận v&agrave;o một chuỗi chisng l&agrave; css selector tới element m&egrave; Loader hiển thị b&ecirc;n trong,</span></span><span>&nbsp;đối tượng <span style="color: #993300;">loader</span> chỉ c&oacute; duy nhất 2 phương thức m&agrave; ch&uacute;ng ta cần quan t&acirc;m đ&oacute; l&agrave; <span style="color: #3366ff;">create()</span> để hiển thị đối tượng Loader v&agrave; <span style="color: #3366ff;">remove()</span> l&agrave; để x&oacute;a đối tượng Loader.</span></span></p>
+                    <p><b>Bên dưới là các nút Demo:</b></p>
                 </div>
                 <div class="list-item-test">
                     <button class="button loader-tdb background-green">Load dữ liệu</button>
@@ -84,7 +115,14 @@
                     <a href="#">Table</a>
                 </h3>
                 <div class="discription">
-                    <b>Mô tả: </b> <p></p>
+                    <p style="line-height: 20px;"><b>Mô tả: </b>Đây là một đối tượng giúp người dùng cấu hình hiển thị dữ liệu cho một bảng dữ liệu thông qua API hoặc dữ liệu thô ngay trong code javascript, việc chúng ta cần làm với HTML đó chỉ là tạo thẻ sau:
+                    <p><span style="color: #808080;">&lt;</span><span style="color: #800000;">table</span> <span style="color: #993300;">class</span>=<span style="color: #99cc00;">"...."</span><span style="color: #808080;">&gt;</span></p>
+                    <p style="padding-left: 25px;"><span style="color: #808080;">&lt;</span><span style="color: #800000;">thead</span><span style="color: #808080;">&gt;&lt;/</span><span style="color: #800000;">thead</span><span style="color: #808080;">&gt;</span></p>
+                    <p style="padding-left: 25px;"><span style="color: #808080;">&lt;</span><span style="color: #800000;">tbody</span>&gt;&lt;/<span style="color: #800000;">tbody</span><span style="color: #808080;">&gt;</span></p>
+                    <p><span style="color: #808080;">&lt;/</span><span style="color: #800000;">table</span><span style="color: #808080;">&gt;</span></p>
+                    việc còn lại hãy để javascript lo. Người dùng có thể cấu hình lấy dữ liệu ném vào bảng thông qua API hoặc dữ liệu thô tùy ý, có thể làm mới và thú vị hơn là đi cùng với class <b>Table_tdb</b> là một class <b>Filter_tdb</b> chứa các method static phục vụ cho việc convert dữ
+                    liệu khi hiển thị như: Định dạng tiền tệ, giới tính, ngày tháng,... việc lựa chọn filter nào cho cột dữ liệu nào sẽ được cấu hình ngay trong lúc chúng ta cấu hình cho đối tượng table (là thể hiện của class Table_tdb)
+                    </p>
                 </div>
                 <div class="list-item-test">
                     <button class="button refresh-table background-red">Làm mới</button>

@@ -56,17 +56,18 @@ class MenuDropDown_tdb {
      * Lấy dữ liệu thông qua API
      * @param {string} urlAPI  Đường dẫn API
      * @param {string} method Phương thức truyền dẫn dữ liệu GET, POST, ...
+     * @param {string} valueOfOption Giá trị của option sẽ được hiển thị mặc định
      * @param {Object} configAjax Cấu hình thêm cho ajax
      * CreatedBy: Trần Duy Bá (13/01/2021)
      */
-    setDataWithAPI(urlAPI, method = "GET", configAjax = {}) {
+    setDataWithAPI(urlAPI, method = "GET", valueOfOption = null, configAjax = {}) {
         $.ajax({
             url: urlAPI,
             method: method,
             ...configAjax
         }).done((res)=>{
             this.data = res;
-            this.create();
+            this.create(valueOfOption);
         }).fail(function(res){
 
             //alert("Lỗi lấy dữ liệu cho DropDown!");
