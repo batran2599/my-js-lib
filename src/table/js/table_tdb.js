@@ -13,6 +13,7 @@ class Table_tdb {
      * UpdateBy: Trần Duy Bá (14/01/2021)
      */
     constructor () {
+        this.actionWhenClickToRow = null;
         this.tableSelector = null;
         this.configTable = null;
         this.configAjax = null;
@@ -163,6 +164,7 @@ class Table_tdb {
         this.removeTitleColumn();
         this.removeContentTable();
         this.setDataForTable(loader);
+        this.setEventClickToRow(this.actionWhenClickToRow);
     }
 
     /**
@@ -188,7 +190,8 @@ class Table_tdb {
      * @param {*} action Hành động cần thực hiện
      */
     setEventClickToRow(action = null) {
-        $(this.tableSelector + " > tbody > tr").click(action);
+        this.actionWhenClickToRow = action;
+        $(this.tableSelector + " > tbody > tr").click(this.actionWhenClickToRow);
     }
 
 }
