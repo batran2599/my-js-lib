@@ -108,56 +108,74 @@ dropdown.create("NH001");
 /**
  * Demo sử dụng Table
  */
+const filter = new Filter_tdb();
 const table = new Table_tdb();
 table.tableSelector = ".table-test"; // Selector truy xuất với bảng chứa dữ liệu
 table.recordId = {attrName: "employeeId", fieldName: "employeeId"}; // Cấu hình recordId để add recordId cho từng row
 table.configTable = { // Cấu hình hiển thị khi show dữ liệu vào bảng
     employeeCode: {
         titleColumn: "Mã nhân viên", // Tiêu đề cột
-        filterName: Filter_tdb.type.general // Tên loại filter
+        filterName: filter.type.general // Tên loại filter
     },
     fullName: {
         titleColumn: "Họ tên",
-        filterName: Filter_tdb.type.general
+        filterName: filter.type.general
     },
     gender: {
         titleColumn: "Giới tính",
-        filterName: Filter_tdb.type.gender
+        filterName: filter.type.gender
     },
     dateOfBirth: {
         titleColumn: "Ngày sinh",
-        filterName: Filter_tdb.type.formatDate
+        filterName: filter.type.formatDate
     },
     phoneNumber: {
         titleColumn: "Số điện thoại",
-        filterName: Filter_tdb.type.general
+        filterName: filter.type.general
     },
     email: {
         titleColumn: "Email",
-        filterName: Filter_tdb.type.general
+        filterName: filter.type.general
     },
     positionName: {
         titleColumn: "Chức vụ",
-        filterName: Filter_tdb.type.general
+        filterName: filter.type.general
     },
     departmentName: {
         titleColumn: "Phòng ban",
-        filterName: Filter_tdb.type.general
+        filterName: filter.type.general
     },
     basicSalary: {
         titleColumn: "Mức lương hiện tại",
-        filterName: Filter_tdb.type.convertMoney
+        filterName: filter.type.convertMoney
     },
     workStatus: {
         titleColumn: "Tình trạng công việc",
-        filterName: Filter_tdb.type.workStatus
+        filterName: filter.type.workStatus
     }
 };
-table.loader = new Loader_tdb();
+table.filter = new Filter_tdb();
+table.loader = new Loader_tdb(".table-item");
 table.setDataWithObjData(fakeData);
+table.setEventClickToRow(function(){
+    let attrName = table.recordId.attrName;
+    let attrValue = $(this).data(attrName);
+    let data = table.findData(attrName, attrValue);
+    modal.message(
+        null,
+        "Thông báo",
+        `Thông tin nhân viên bạn vửa chọn: <br/>
+        <b>Tên</b>: ${data["fullName"]} <br/>
+        <b>Mã nhân viên</b>: ${data["employeeCode"]} <br/>`
+    );
+});
 document.querySelector(".refresh-table").onclick = function() {
     table.refreshTable();
-    alertMessage.done("Đã làm mới dữ liệu thành công !");
+    table.loader.create();
+    setTimeout(()=>{
+        table.loader.remove();
+        alertMessage.done("Đã làm mới dữ liệu thành công !");
+    }, 1000);
 };
 /**
  * Kết thúc demo sử dụng Loader

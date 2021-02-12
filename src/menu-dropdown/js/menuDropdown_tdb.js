@@ -147,7 +147,7 @@ class MenuDropDown_tdb {
             this.inputSaveOption = this.createHTMLTag("input", {type: "hidden", name: this.nameOfInputSaveOption});
             this.containingObject.appendChild(this.inputSaveOption);
 
-            this.displayOption = this.createHTMLTag("div", {class: "tdb-value-of-dropdown"});
+            this.displayOption = this.createHTMLTag("p", {class: "tdb-value-of-dropdown"});
             this.displayOption.style.backgroundImage = `url(${this.urlIcon}/${this.downArrow})`;
             this.containingObject.appendChild(this.displayOption);
 

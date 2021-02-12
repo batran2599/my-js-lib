@@ -3,25 +3,26 @@
  * CreatedBy: Trần Duy Bá (24/12/2020)
  */
 class Filter_tdb {  
-
-    /**
-     * Đối tượng chứa các loại filter, mỗi property có giá trị là tên của kiểu filter tương ứng
-     * CreadtedBy: Trần Duy Bá (24/12/200)
-     */
-    static type = {
-        general: "general",
-        gender: "gender",
-        formatDate: "formatDate",
-        convertMoney: "convertMoney",
-        workStatus: "workStatus"
-    };
+    constructor() {
+        /**
+         * Đối tượng chứa các loại filter, mỗi property có giá trị là tên của kiểu filter tương ứng
+         * CreadtedBy: Trần Duy Bá (24/12/200)
+         */
+        this.type = {
+            general: "general",
+            gender: "gender",
+            formatDate: "formatDate",
+            convertMoney: "convertMoney",
+            workStatus: "workStatus"
+        };
+    }
 
     /**---------------------------------------------------------------
      * Chuyển đổi các dữ liệu từ dạng chống, null sang dạng text "..."
      * @param {any} value Bất kỳ kiểu dữ liệu gì 
      * CreatedBy: Trần Duy Bá (24/12/2020)
      */
-    static general(value) {
+    general(value) {
         if(value == "" || value == null) {
             return "...";
         }
@@ -33,7 +34,7 @@ class Filter_tdb {
      * @param {int} gender Các số 0,1,2 hoặc 3 
      * CreatedBy: Trần Duy Bá (24/12/2020)
      */
-    static gender(gender) {
+    gender(gender) {
         if(gender == 0) {
             return "Nam";
         } else if(gender == 1) {
@@ -49,7 +50,7 @@ class Filter_tdb {
      * @param {any} date Bất kể kiểu dữ liệu gì
      * CreatedBy: Trần Duy Bá (29/12/2020)
      */
-    static formatDate(_date, format = "dd/mm/yyyy") {
+    formatDate(_date, format = "dd/mm/yyyy") {
         let date = new Date(_date);
         if(!Number.isNaN(date.getTime()) && date.getTime() != 0) {
             let day = date.getDate();
@@ -88,7 +89,7 @@ class Filter_tdb {
      * @param {string} typeMoneyAfter Ký hiệu tiền tệ đằng sau giá trị tiền
      * CreatedBy: Trần Duy Bá (24/12/2020)
      */
-    static convertMoney(value, typeMoneyBefore = "", typeMoneyAfter = "", checkEmpty = true) {
+    convertMoney(value, typeMoneyBefore = "", typeMoneyAfter = "", checkEmpty = true) {
         if(checkEmpty) {
             value = this.general(value);
         }
@@ -127,7 +128,7 @@ class Filter_tdb {
      * @param {int} statusCode Mã trạng thái làm việc
      * CreatedBy: Trần Duy Bá (24/01/2021)
      */
-    static workStatus(statusCode){
+    workStatus(statusCode){
         if(statusCode == 0) {
             return "Đã nghỉ";
         } else if(statusCode == 1) {

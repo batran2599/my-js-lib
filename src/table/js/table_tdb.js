@@ -17,6 +17,7 @@ class Table_tdb {
         this.configTable = null;
         this.configAjax = null;
         this.recordId = null;
+        this.filter = null;
         this.loader = null;
         this.data = null;
     }
@@ -42,27 +43,31 @@ class Table_tdb {
      * CreatedBy: Trần Duy Bá (30/12/2020)
      * UpdateBy: Trần Duy Bá (14/01/2021)
      */
-    setDataWithAPI(urlAPI, method, loader = false) {
+    setDataWithAPI(urlAPI = null, method = "GET", loader = false) {
         if(loader) {
             this.loader.create();
         }
-        $.ajax({
-            url: urlAPI,
-            method: method,
-            ...this.configAjax
-        }).done((res)=>{
-            this.data = res;
-            this.setDataForTable(loader);
-        }).fail(()=>{
-            console.error("Lỗi khi lấy dữ liệu cho bảng !");
-        });
+        if(urlAPI != null) {
+            $.ajax({
+                url: urlAPI,
+                method: method,
+                ...this.configAjax
+            }).done((res)=>{
+                this.data = res;
+                this.setDataForTable(loader);
+            }).fail(()=>{
+                console.error("Lỗi khi lấy dữ liệu cho bảng !");
+            });
+        } else {
+            console.error("Chưa truyền url API.");
+        }
     }
 
     /**
      * -----------------------------------------------------------------------------------------------
      * Nhận dữ liệu truyền vào dưới dạng Object sau đó đẩy vào bảng thông qua hàm SetDataForTable(data): 
-     * @param {Object} data Object có format
-     * @param {bool} loader Xác định xem có sử dụng đối tượng Loader không
+     * @param {Array} data Mảng các đối tượng dữ liệu
+     * @param {Bool} loader Xác định xem có sử dụng đối tượng Loader không
      * data =  {
      *      any: {
      *          property: value,
@@ -80,6 +85,8 @@ class Table_tdb {
             }
             this.data = data;
             this.setDataForTable(loader);
+        } else {
+            console.error("Chưa truyền dữ liệu.")
         }
     }
 
@@ -106,8 +113,8 @@ class Table_tdb {
         let tdTag = "";
         $.each(this.data, (index, itemRow)=>{ // Lặp qua từng dòng dữ liệu
             $.each(this.configTable, (indexTd)=>{ // Lặp qua thông tin cấu hình của bảng để lấy thuộc tính tương ứng với từng dòng data và tên của cột data tương ứng
-                if(this.configTable[indexTd]["filterName"] !== undefined) { // Kiểm tra xem loại dữ liệu hiện tại có dùng đến filter không có thì dùng Filter tương ứng còn không thì thôi
-                    tdTag += `<td>${Filter_tdb[this.configTable[indexTd]["filterName"]](itemRow[indexTd])}</td>`;
+                if(this.configTable[indexTd]["filterName"] !== undefined && this.filter != null) { // Kiểm tra xem loại dữ liệu hiện tại có dùng đến filter không có thì dùng Filter tương ứng còn không thì thôi
+                    tdTag += `<td>${this.filter[this.configTable[indexTd]["filterName"]](itemRow[indexTd])}</td>`;
                 } else {
                     tdTag += `<td>${itemRow[indexTd]}</td>`;
                 }
@@ -156,6 +163,32 @@ class Table_tdb {
         this.removeTitleColumn();
         this.removeContentTable();
         this.setDataForTable(loader);
+    }
+
+    /**
+     * Tìm đối tượng dữ liệu trong mảng dữ liệu data hiện đang được lưu
+     * @param {*} attrName Tên thuộc tính trong mảng dữ liệu data
+     * @param {*} attrValue Giá trị của thuộc tính trong mảng dữ liệu data
+     * CreatedBy: Trần Duy Bá (12/02/2021)
+     */
+    findData(attrName = null, attrValue = null) {
+        if(attrName != null || attrValue != null) {
+            for(let  i = 0; i < this.data.length; i++) {
+                if(this.data[i][attrName] == attrValue)
+                    return this.data[i];
+            }
+        } else {
+            console.error("Thông tin tìm kiếm chưa đầy đủ.");
+        }
+        return null;
+    }
+
+    /**
+     * Tạo hành động khi click vào mỗi dòng dữ liệu trong bảng
+     * @param {*} action Hành động cần thực hiện
+     */
+    setEventClickToRow(action = null) {
+        $(this.tableSelector + " > tbody > tr").click(action);
     }
 
 }

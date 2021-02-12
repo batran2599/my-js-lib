@@ -3,13 +3,13 @@ class Loader_tdb {
      * Khởi tạo các giá ban đầu
      * @param {querySelector} viewSelector QuerySelector đến đối lượng HTML chứa đối tượng Loader
      */
-    constructor(viewSelector = "body") {
+    constructor() {
         this.colorOfRuner = "#019160"; // Màu đường biên chạy
         this.backgroundOfRuner = "#f3f3f3"; // Nền tròn
         this.runerWidth = "10px"; // Bề dày 
         this.objectRadius = "50px";
 
-        this.view = document.querySelector(viewSelector);
+        this.view = document.querySelector("body");
         this.container = null;
         this.loaderObject = null;
     }
@@ -84,14 +84,16 @@ class Loader_tdb {
      * CreadtedBy: Trần Duy Bá (13/01/2021)
      */
     rotateAnimation() {
-        this.loaderObject.animate([ 
-            { transform: 'rotate(0)'},
-            { transform: 'rotate(360deg)'}],
-            {
-                duration: 1000,
-                iterations: Infinity
+        let deg = 0;
+        let rotate = ()=>{
+            deg += 7;
+            this.loaderObject.style.transform = `rotate(${deg}deg)`;
+            if(deg >= 360) {
+                deg = 0;
             }
-        );
+            window.requestAnimationFrame(rotate);
+        };
+        rotate();
     }
 
     /**

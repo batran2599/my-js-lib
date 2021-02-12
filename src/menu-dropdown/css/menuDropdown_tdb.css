@@ -72,3 +72,7 @@
 .tdb-dropdown:hover > .tdb-list-option{
     height: auto;
 }
+
+.tdb-dropdown:focus > .tdb-list-option{
+    height: auto;
+}
