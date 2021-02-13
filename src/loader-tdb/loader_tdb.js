@@ -57,6 +57,7 @@ class Loader_tdb {
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: "#00000070",
+            transition: "0.2s"
         });
 
         this.loaderObject = this.createHTMLTag("div", null, {
@@ -101,6 +102,9 @@ class Loader_tdb {
      * CreadtedBy: Trần Duy Bá (13/01/2021)
      */
     remove() {
-        this.view.removeChild(this.container);
+        this.container.style.backgroundColor = "#00000000";
+        setTimeout(()=>{
+            this.view.removeChild(this.container);
+        }, 100);
     }
 }

@@ -111,7 +111,6 @@ dropdown.create("NH001");
 const filter = new Filter_tdb();
 const table = new Table_tdb();
 table.tableSelector = ".table-test"; // Selector truy xuất với bảng chứa dữ liệu
-table.recordId = {attrName: "employeeId", fieldName: "employeeId"}; // Cấu hình recordId để add recordId cho từng row
 table.configTable = { // Cấu hình hiển thị khi show dữ liệu vào bảng
     employeeCode: {
         titleColumn: "Mã nhân viên", // Tiêu đề cột
@@ -154,6 +153,7 @@ table.configTable = { // Cấu hình hiển thị khi show dữ liệu vào bả
         filterName: filter.type.workStatus
     }
 };
+table.recordId = {attrName: "employeeId", fieldName: "employeeId"}; // Cấu hình recordId để add recordId cho từng row
 table.filter = new Filter_tdb();
 table.loader = new Loader_tdb(".table-item");
 table.setDataWithObjData(fakeData);
@@ -170,7 +170,7 @@ table.setEventClickToRow(function(){
     );
 });
 document.querySelector(".refresh-table").onclick = function() {
-    table.refreshTable();
+    table.refreshTable(fakeData);
     table.loader.create();
     setTimeout(()=>{
         table.loader.remove();

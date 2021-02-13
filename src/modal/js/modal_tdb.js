@@ -130,6 +130,27 @@ class Modal_tdb {
     }
 
     /**
+     * Xóa đối form modal khỏi khung chứa form modal
+     * @param {Int} index Chỉ số của form modal
+     * CreatedBy: Trần Duy Bá (13/02/2021)
+     */
+    removeFormModal(index) {
+        this.listFormModal[index].style.animationName = "fadeOutUp";
+        this.listFormModal[index].style.animationDuration = "0.5s";
+        setTimeout(()=>{
+            this.containModal.removeChild(this.listFormModal[index]);
+            this.removeButtonInList(index);
+            if(this.listFormModal.length == 0) {
+                this.containModal.style.backgroundColor = "#00000000";
+                setTimeout(()=>{
+                    this.view.removeChild(this.containModal);
+                    this.containModal = null;
+                }, 200);
+            }
+        }, 300);
+    }
+
+    /**
      * Xóa modal tương ứng với button nó bảo bọc đc truyền vào
      * @param {HTMLObjectElement} buttonCancelH Đối tượng buttom HTML ở phần header nằm trong form modal muốn xóa 
      * @param {HTMLObjectElement} buttonCancelF Đối tượng buttom HTML ở phần footer nằm trong form modal muốn xóa 
@@ -139,17 +160,10 @@ class Modal_tdb {
         let index = -1;
         if(buttonCancelH != null) {
             index = this.listButtonCancelH.indexOf(buttonCancelH);
-            this.containModal.removeChild(this.listFormModal[index]);
-            this.removeButtonInList(index);
+            this.removeFormModal(index);
         } else if(buttonCancelF != null) {
             index = this.listButtonCancelF.indexOf(buttonCancelF);
-            this.containModal.removeChild(this.listFormModal[index]);
-            this.removeButtonInList(index);
-        }
-
-        if(this.listFormModal.length == 0) {
-            this.view.removeChild(this.containModal);
-            this.containModal = null;
+            this.removeFormModal(index);
         }
     }
 

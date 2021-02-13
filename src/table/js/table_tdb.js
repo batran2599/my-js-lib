@@ -16,11 +16,13 @@ class Table_tdb {
         this.actionWhenClickToRow = null;
         this.tableSelector = null;
         this.configTable = null;
-        this.configAjax = null;
         this.recordId = null;
         this.filter = null;
         this.loader = null;
         this.data = null;
+        this.urlAPI = null;
+        this.method = null;
+        this.configAjax = null;
     }
 
     /**
@@ -45,6 +47,8 @@ class Table_tdb {
      * UpdateBy: Trần Duy Bá (14/01/2021)
      */
     setDataWithAPI(urlAPI = null, method = "GET", loader = false) {
+        this.urlAPI = urlAPI;
+        this.method = method;
         if(loader) {
             this.loader.create();
         }
@@ -156,14 +160,20 @@ class Table_tdb {
     }
 
     /**
-     * Làm mới lại bảng dữ liệu
-     * @param {bool} loader Xác định xem có sử dụng đối tượng Loader không
+     * Làm mới lại bảng dữ liệu, nếu data truyền vào là null thì dữ liệu sẽ được lấy lại qua API còn
+     * nếu data có dữ liệu thì nó sẽ sử dụng dữ liệu này.
+     * @param {Array} data Mảng các đối tượng dữ liệu (mặc định là null)
+     * @param {Bool} loader Xác định xem có sử dụng đối tượng Loader không
      * CreatedBy: Trần Duy Bá (11/02/2021)
      */
-    refreshTable(loader = false) {
+    refreshTable(data = null, loader = false) {
         this.removeTitleColumn();
         this.removeContentTable();
-        this.setDataForTable(loader);
+        if(data == null) {
+            this.setDataWithAPI(this.urlAPI, this.method, loader);
+        } else {
+            this.setDataWithObjData(data, loader);
+        }
         this.setEventClickToRow(this.actionWhenClickToRow);
     }
 

@@ -6,6 +6,7 @@
     top: 0;
     left: 0;
     background-color: #00000070;
+    transition: 0.2s;
 }
 
     .modal-tdb {
@@ -133,7 +134,7 @@
 
 @media only screen and (max-width: 736px) {
     .modal-tdb {
-        width: 80%;
-        left: calc((100% - 80%)/2);
+        width: 95%;
+        left: calc((100% - 95%)/2);
     }
 }

@@ -1,5 +1,5 @@
 .contain-messages {
-    min-width: 25%;
+    width: 25%;
     max-height: 100vh;
     position: fixed;
     z-index: 999;
@@ -73,3 +73,9 @@
             transform: translate3d(100%, 0, 0);
         }
     }
+
+@media only screen and (max-width: 736px) {
+    .contain-messages {
+        width: 90%;
+    }
+}
